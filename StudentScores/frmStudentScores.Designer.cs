@@ -72,6 +72,7 @@
             this.btnAddNew.TabIndex = 2;
             this.btnAddNew.Text = "&Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnUpdate
             // 
@@ -82,6 +83,7 @@
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
