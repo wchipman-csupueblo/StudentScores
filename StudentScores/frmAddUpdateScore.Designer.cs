@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAddUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,6 +55,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(113, 62);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancel.Name = "btnCancel";
@@ -62,25 +63,27 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnAdd
+            // btnAddUpdate
             // 
-            this.btnAdd.Location = new System.Drawing.Point(30, 62);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAddUpdate.Location = new System.Drawing.Point(30, 62);
+            this.btnAddUpdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAddUpdate.Name = "btnAddUpdate";
+            this.btnAddUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnAddUpdate.TabIndex = 3;
+            this.btnAddUpdate.Text = "&Add";
+            this.btnAddUpdate.UseVisualStyleBackColor = true;
+            this.btnAddUpdate.Click += new System.EventHandler(this.btnAddUpdate_Click);
             // 
             // frmAddUpdateScore
             // 
-            this.AcceptButton = this.btnAdd;
+            this.AcceptButton = this.btnAddUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(222, 97);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnAddUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.label1);
@@ -89,6 +92,7 @@
             this.Name = "frmAddUpdateScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Score";
+            this.Load += new System.EventHandler(this.frmAddUpdateScore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,6 +103,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnAddUpdate;
     }
 }
