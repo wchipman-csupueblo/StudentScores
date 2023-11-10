@@ -32,9 +32,9 @@ namespace StudentScores
             bool success = true;
 
             StringBuilder sb = new StringBuilder();
-            sb.Append(IsPresent(txtScore.Text, "Score"));
-            sb.Append(IsInt32(txtScore.Text, "Score"));
-            sb.Append(IsWithinRange(txtScore.Text, "Score", 0, 100));
+            sb.Append(Validator.IsPresent(txtScore.Text, "Score"));
+            sb.Append(Validator.IsInt32(txtScore.Text, "Score"));
+            sb.Append(Validator.IsWithinRange(txtScore.Text, "Score", 0, 100));
             string errorMsg = sb.ToString();
 
             if (!String.IsNullOrEmpty(errorMsg))
@@ -46,39 +46,7 @@ namespace StudentScores
             return success;
         }
 
-        private string IsPresent(string value, string name)
-        {
-            string errorMsg = "";
-            if (String.IsNullOrEmpty(value))
-            {
-                errorMsg = $"{name} is a required field.\n";
-            }
-            return errorMsg;
-        }
-
-        private string IsInt32(string value, string name)
-        {
-            string errorMsg = "";
-            if (!Int32.TryParse(value, out _))
-            {
-                errorMsg = $"{name} must be a valid integer.\n";
-            }
-            return errorMsg;
-        }
-
-        private string IsWithinRange(string value, string name, decimal min, decimal max)
-        {
-            string errorMsg = "";
-            if (Decimal.TryParse(value, out decimal number))
-            {
-                if (number < min || number > max)
-                {
-                    errorMsg = $"{name} must be between {min} and {max}.\n";
-                }
-            }
-            return errorMsg;
-        }
-
+       
         private void btnAddUpdate_Click(object sender, EventArgs e)
         {
             if (IsValidScore())
