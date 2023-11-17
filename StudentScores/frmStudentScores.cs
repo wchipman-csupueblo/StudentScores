@@ -21,15 +21,15 @@ namespace StudentScores
 
         private void frmStudentScores_Load(object sender, EventArgs e)
         {
-            students.Add(new Student("Bill Chipman|92|95|85"));
-            students.Add(new Student("Jane Doe|100|98|89"));
-            students.Add(new Student("John Smith|85|79|90"));
+            students = StudentDB.GetStudents();
             LoadStudentListBox();
         }
 
         private void LoadStudentListBox(int selectedIndex = 0)
         {
             lstStudents.Items.Clear();
+
+            students = students.OrderBy(s => s.Name).ToList();
 
             foreach(Student s in students)
             {
@@ -78,6 +78,7 @@ namespace StudentScores
             if (students.Count > 0)
             {
                 students.RemoveAt(lstStudents.SelectedIndex);
+                StudentDB.SaveStudents(students);
                 LoadStudentListBox();
             }
         }
@@ -90,6 +91,7 @@ namespace StudentScores
             if (result == DialogResult.OK)
             {
                 students.Add((Student)addForm.Tag);
+                StudentDB.SaveStudents(students);
                 LoadStudentListBox();
             }
         }
@@ -108,6 +110,7 @@ namespace StudentScores
                     students.RemoveAt(lstStudents.SelectedIndex);
                     students.Insert(lstStudents.SelectedIndex, (Student)updateForm.Tag);
 
+                    StudentDB.SaveStudents(students);
                     LoadStudentListBox();
                 }
             }

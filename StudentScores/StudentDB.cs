@@ -23,16 +23,17 @@ namespace StudentScores
                 Student student = new Student(row);
                 students.Add(student);
             }
-
+            textIn.Close();
             return students; 
         }
 
         public static void SaveStudents(List<Student> students)
         {
-            StreamWriter textOut = new StreamWriter(path, true);
+            StreamWriter textOut = new StreamWriter(path);
 
             foreach (Student student in students)
                 textOut.WriteLine(student.ToString());
+            textOut.Close();
         }
     }
 }
